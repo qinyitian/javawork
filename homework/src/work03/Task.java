@@ -8,12 +8,12 @@ import work04.Task1;
 public class Task implements Serializable{
 	
 	private String taskID;
-	private int arrivalTime;//到达时间
-	private int startingTime;//开始时间
-	private int serviceTime;//服务时间
-	private int finishingTime;//结束时间
-	private int turnAroundTime;//周转时间
-	private double weightTurnAround;//带权周转时间
+	private int arrivalTime;
+	private int startingTime;
+	private int serviceTime;
+	private int finishingTime;
+	private int turnAroundTime;
+	private double weightTurnAround;
 	
 	public Task() {};
 	public Task(String taskID,int serviceTime,int arriveTime){

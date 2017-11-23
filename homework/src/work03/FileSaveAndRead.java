@@ -12,7 +12,7 @@ import work04.MyObjectOutputStream;
 
 public class FileSaveAndRead {
 
-	//从文件中取出100对象
+	//锟斤拷锟侥硷拷锟斤拷取锟斤拷100锟斤拷锟斤拷
 	public void readTask(Task[] t, String path){  
         FileInputStream fis = null;  
         ObjectInputStream ois = null;     
@@ -21,13 +21,10 @@ public class FileSaveAndRead {
             fis = new FileInputStream(f);  
             ois = new ObjectInputStream(fis);  
             Task task;
-           // for(int i=0;i<100;i++){
-            	task = (Task)ois.readObject();
-            	//t[i].setTaskMeber(task);
-            	System.out.println(task.toString());
-        //    }
-            //ta[1] = (Task)ois.readObject();
-            //强制类型转换  
+            int count = 0;
+            while((t[count] = (Task)ois.readObject()) != null){
+            	count++;
+            }
 
         } catch (FileNotFoundException e) {  
             e.printStackTrace();  
@@ -44,7 +41,7 @@ public class FileSaveAndRead {
             }  
         }  
     }  
-	//保存一个对象至文件中
+	//锟斤拷锟斤拷一锟斤拷锟斤拷锟斤拷锟斤拷锟侥硷拷锟斤拷
 	public void saveTask(Task t,String path){
         FileOutputStream fos = null;  
         ObjectOutputStream oos = null;  
@@ -59,7 +56,7 @@ public class FileSaveAndRead {
             	oos = new MyObjectOutputStream(fos);	
             }
               
-            oos.writeObject(t);    //括号内参数为要保存java对象  
+            oos.writeObject(t);    
         } catch (FileNotFoundException e) {  
             e.printStackTrace();  
         } catch (IOException e) {  

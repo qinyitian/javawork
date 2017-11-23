@@ -2,6 +2,7 @@ package work03;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class FCFS {
@@ -10,15 +11,15 @@ public class FCFS {
 	private int[] arr = {6,2,1,3,9};	
 	private static String path = "d:\\task.txt";
 	private FileSaveAndRead dofile = new FileSaveAndRead();
-	//±£´æÈÎÎñÖÁÎÄ¼þ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
 	
-	//´´½¨ÈÎÎñ100
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½100
 	private void createFile(){
 		Random r = new Random();
 		int x = 0;
 		String taskID = null;
 		for(int i=0;i<100;i++){
-			x =r.nextInt(4);
+			x =r.nextInt(arr.length);
 			//{6,2,1,3,9}
 			taskID = "task_"+String.valueOf(i);
 			Task ta = new Task(taskID,arr[x],i);
@@ -32,21 +33,25 @@ public class FCFS {
 	}
 	
 	public void print(){
+		System.out.println("TaskID      "+"ArriveTime      "+"startingTime    "+"serviceTime     "+"finishingTime   "+"turnAroundTime  "+"weightTurnAround");
 		for(int i=0;i<100;i++){
-			if(i%10 == 0){
-				System.out.println(task[i].toString());
-			}
+			 
+				System.out.printf("%-16s %-16d",task[i].getTaskID(),task[i].getArrivalTime());
+				System.out.printf("%-16d %-16d",task[i].getStartingTime(),task[i].getServiceTime());
+				System.out.printf("%-16d %-16d",task[i].getFinishingTime(),task[i].getTurnAroundTime());
+				System.out.println(task[i].getWeightTurnAround());
+			
 		}
 	}
-	//Ö´ÐÐÈÎÎñ
+	//Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private void dowork(){
 		int count = 0;
 		int lastcount = count;
 		int i = 0;
 		
-		while(count < 10000)//ÉèÖÃ10000·ÀÖ¹ÏÝÈëËÀÑ­»·
+		while(count < 10000)//ï¿½ï¿½ï¿½ï¿½10000ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½
 		{
-			//Ñ­»·ÅÐ¶ÏÊÇ·ñÓÐÂú×ãÊ±¼äµÄ¿É¼ÓÈëÈÎÎñ,ÓÐÔò¼ÓÈëÓÐÐòÈÎÎñ¶ÓÁÐ
+			//Ñ­ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ä¿É¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			for(i=0;i<100;i++){
 				if(task[i].getArrivalTime() == count){
 					alist.add(task[i]);
@@ -54,7 +59,7 @@ public class FCFS {
 					System.out.println(task[i].getTaskID() +" arrive"+" time is "+count);
 				}
 			}
-			//ÅÐ¶Ïµ±Ç°Ê±¼äÊÇ·ñµÈÓÚÉÏ¸öÈÎÎñÍê³ÉºóµÄÊ±¼ä£¬²ÅÄÜ½øÈëÏÂÒ»¸öÈÎÎñ
+			//ï¿½Ð¶Ïµï¿½Ç°Ê±ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éºï¿½ï¿½Ê±ï¿½ä£¬ï¿½ï¿½ï¿½Ü½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if(count == lastcount){
 				if(alist.isEmpty() != true){
 					Task t = alist.remove(0);
@@ -66,12 +71,139 @@ public class FCFS {
 					break;
 				}
 			}
+			
 			count++;
 		}
 		
 	}
 	
-	//¼ÆËãÈ¨ÖµµÈÊôÐÔ
+	private void dowork2(){
+		int count = 0;
+		int lastcount = count;
+		int lastcount2 = count; 
+		int i = 0;
+		
+		while(count < 10000)
+		{
+
+			for(i=0;i<100;i++){
+				if(task[i].getArrivalTime() == count){
+					alist.add(task[i]);
+					
+					task[i].setArrivalTime(count);
+					System.out.println(task[i].getTaskID() +" arrive"+" time is "+count);
+				}
+			}
+
+			if(count == lastcount){
+				if(alist.isEmpty() != true){
+					Task t = alist.remove(0);
+					lastcount2 = count + t.getServiceTime();
+					t.setStartingTime(count);
+					System.out.println(t.getTaskID() +" ++++++starting"+" time is "+ count);
+				}
+				else{
+					break;
+				}
+			}
+			
+			if(count == lastcount2){
+				if(alist.isEmpty() != true){
+					Task t = alist.remove(0);
+					lastcount2 = count + t.getServiceTime();
+					t.setStartingTime(count);
+					System.out.println(t.getTaskID() +" ++++++starting"+" time is "+ count);
+				}
+				else{
+					break;
+				}
+			}
+			count++;
+		}
+		
+	}
+
+	private void dowork3(){
+		int count = 0;
+		int lastcount = count;
+		int i = 0;
+		
+		while(count < 10000)
+		{
+			for(i=0;i<100;i++){
+				if(task[i].getArrivalTime() == count){
+					alist.add(task[i]);
+					Collections.sort(alist,new SortByServiceTime());
+					task[i].setArrivalTime(count);
+					System.out.println(task[i].getTaskID() +" arrive"+" time is "+count);
+				}
+			}
+			//ç‚¹æ•°
+			if(count == lastcount){
+				if(alist.isEmpty() != true){
+					Task t = alist.remove(0);
+					lastcount = count + t.getServiceTime();
+					t.setStartingTime(count);
+					System.out.println(t.getTaskID() +" ++++++starting"+" time is "+ count);
+				}
+				else{
+					break;
+				}
+			}
+			
+			count++;
+		}
+		
+	}
+
+	
+	private void dowork4(){
+		int count = 0;
+		int lastcount = count;
+		int lastcount2 = count; 
+		int i = 0;
+		
+		while(count < 10000)//ï¿½ï¿½ï¿½ï¿½10000ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½
+		{
+			//Ñ­ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ä¿É¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			for(i=0;i<100;i++){
+				if(task[i].getArrivalTime() == count){
+					alist.add(task[i]);
+					Collections.sort(alist,new SortByServiceTime());
+					task[i].setArrivalTime(count);
+					System.out.println(task[i].getTaskID() +" arrive"+" time is "+count);
+				}
+			}
+			//ï¿½Ð¶Ïµï¿½Ç°Ê±ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éºï¿½ï¿½Ê±ï¿½ä£¬ï¿½ï¿½ï¿½Ü½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			if(count == lastcount){
+				if(alist.isEmpty() != true){
+					Task t = alist.remove(0);
+					lastcount2 = count + t.getServiceTime();
+					t.setStartingTime(count);
+					System.out.println(t.getTaskID() +" ++++++starting"+" time is "+ count);
+				}
+				else{
+					break;
+				}
+			}
+			
+			if(count == lastcount2){
+				if(alist.isEmpty() != true){
+					Task t = alist.remove(0);
+					lastcount2 = count + t.getServiceTime();
+					t.setStartingTime(count);
+					System.out.println(t.getTaskID() +" ++++++starting"+" time is "+ count);
+				}
+				else{
+					break;
+				}
+			}
+			count++;
+		}
+		
+	}
+
+	
 	private void account(){
 		for(int i=0;i<100;i++){
 			task[i].setFinishingTime(task[i].getStartingTime()+task[i].getServiceTime());
@@ -87,7 +219,11 @@ public class FCFS {
 		fc.createFile();
 		//fc.dofile.readTask(fc.task, path);
 		
-		fc.dowork();
+		//fc.dowork();
+		//fc.dowork2();
+		//fc.dowork3();
+		fc.dowork4();
+		
 		fc.account();
 		fc.print();
 		
