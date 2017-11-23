@@ -1,4 +1,4 @@
-package catalog;
+package FileIO;
 import java.io.File;
 
 public class Test {
