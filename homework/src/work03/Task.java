@@ -3,11 +3,10 @@ package work03;
 import java.io.Serializable;
 import java.io.SerializablePermission;
 
-import work04.Task1;
 
 public class Task implements Serializable{
 	
-	private String taskID;
+	private int taskID;
 	private int arrivalTime;
 	private int startingTime;
 	private int serviceTime;
@@ -16,12 +15,22 @@ public class Task implements Serializable{
 	private double weightTurnAround;
 	
 	public Task() {};
-	public Task(String taskID,int serviceTime,int arriveTime){
+	public Task(int taskID,int serviceTime,int arriveTime){
 		this.taskID = taskID;
 		this.serviceTime = serviceTime;
 		this.arrivalTime = arriveTime;
 	}
 	
+	public Task(Task t) {
+		// TODO Auto-generated constructor stub
+		this.taskID = t.taskID;
+		this.serviceTime = t.serviceTime;
+		this.arrivalTime = t.arrivalTime;
+		this.startingTime = t.startingTime;
+		this.finishingTime = t.finishingTime;
+		this.turnAroundTime = t.turnAroundTime;
+		this.weightTurnAround = t.weightTurnAround;
+	}
 	public void setTaskMeber(Task t){
 		this.taskID = t.taskID;
 		this.serviceTime = t.serviceTime;
@@ -32,10 +41,10 @@ public class Task implements Serializable{
 		this.weightTurnAround = t.weightTurnAround;
 	}
 	
-	public String getTaskID() {
+	public int getTaskID() {
 		return taskID;
 	}
-	public void setTaskID(String taskID) {
+	public void setTaskID(int taskID) {
 		this.taskID = taskID;
 	}
 	public int getArrivalTime() {

@@ -1,47 +1,84 @@
 package getandsavestudent;
 
 
+import java.io.BufferedReader;
 import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.ObjectOutputStream;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+
+import work03.Task;
 
 public class GetStudent {
 
-	public void getStudent(String path,Student[] stu) throws FileNotFoundException{
+	public Student[] getStudent(String path){
 
-		File inf = new File(path);  
-		
-		FileInputStream ios = new FileInputStream(inf);
-		DataInputStream dios = new DataInputStream(ios);
+			int count;
+			File f = new File(path);
+			String[] arr = new String[3];
+			String encoding = "utf-8";
+			Student[] stu = new Student[100];
+			Student[] student;
+			String text = null;
+			try {
+				InputStreamReader read =  new InputStreamReader(new FileInputStream(f),encoding);
+				int i = 0;
+				int j = 0;
+				BufferedReader bread = new BufferedReader(read);
 
-		try{
-			
-			String[] str = new String[1000];
-			StringBuffer sb = null;
-			StringBuffer sex = null;
-			int count = 0;
-			long num = 0l;
-			char c;
-			char d;
-			
-			num = dios.readLong();
-			while((c = dios.readChar()) != 32){
-				sb.append(c);
+				while((text = bread.readLine()) != null){
+					String[] s = text.split("\\s+");
+					for(i=0;i<3;i++){
+						arr[i] = s[i];
+					}	
+					Student tempstu = new Student(arr[0],arr[2],arr[1]);
+					stu[j] = new Student(tempstu);
+					j++;
+				}
+				
+				read.close();
+				bread.close();
+				
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			while((d = dios.readChar()) != '\n'){
-				sex.append(d);
-			}
-			System.out.println(num+" "+sb+" "+sex);
-			ios.close();
-			dios.close();
-		}catch(IOException e){
-			e.printStackTrace();
-			System.out.println("123");
+			
+			return stu;
 		}
+	
+	public void saveStudent(ArrayList<Student> stu,String path){
 		
+		File f = new File(path);
+		try {
+			FileOutputStream out = new FileOutputStream(f);
+			ObjectOutputStream dout;
+			try {
+				dout = new ObjectOutputStream(out);
+				
+				dout.writeObject(stu);	
+				out.close();
+				dout.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
-
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
 	}
+
 }

@@ -7,6 +7,19 @@ public class Student implements Serializable{
 	private String num;
 	private String name;
 	private String sex;
+	
+	public Student(String Num,String Name,String Sex){
+		this.num = Num;
+		this.name = Name;
+		this.sex = Sex;
+	}
+	
+	public Student(Student s) {
+		this.num = s.num;
+		this.name = s.name;
+		this.sex = s.sex;
+	}
+
 	public String getNum() {
 		return num;
 	}
