@@ -1,15 +1,15 @@
 First
 =================
-LinearLayout
+--Use LinearLayout
 -----------------------------------
-![result picture](https://github.com/qinyitian/javawork/img/a11.jpg)
+![result picture1](https://github.com/qinyitian/javawork/raw/master/img/a11.jpg)<br>
 Second
 =================
-RelaviteLayout
+--Use RelaviteLayout
 -----------------------------------
-![result picture](https://github.com/qinyitian/javawork/img/a12.jpg)
+![result picture2](https://github.com/qinyitian/javawork/raw/master/img/a12.jpg)<br>
 Three
 =================
-TableLayout
+--use TableLayout
 -----------------------------------
-![result picture](https://github.com/qinyitian/javawork/img/a13.jpg)
+![result picture3](https://github.com/qinyitian/javawork/raw/master/img/a13.jpg)<br>
