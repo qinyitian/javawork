@@ -1,5 +1,7 @@
 First listview
 =================
+(still have some question about picture position --solving)
+--------------------------
 --show picture and text
 use imageview to show pic and set their width and higth to 128px<br>
 use textview to show the name <br>
@@ -19,7 +21,7 @@ Three
 =================
 these are codes about create menu<br>
 -----------------------------------
-public boolean onCreateOptionsMenu(Menu menu) {<br>
+    public boolean onCreateOptionsMenu(Menu menu) {<br>
         SubMenu sub=menu.addSubMenu("字体大小");<br>
         sub.add(0,1,0,"小");<br>
         sub.add(0,2,0,"中");<br>
@@ -27,9 +29,12 @@ public boolean onCreateOptionsMenu(Menu menu) {<br>
         SubMenu sub1=menu.addSubMenu("颜色");<br>
         sub1.add(0,4,0,"红色");<br>
         sub1.add(0,5,0,"黑色");<br>
+
         menu.add(0,6,0,"toast提示");<br>
+
         return true;<br>
-    } <br>
+    }<br>
+**<br>
 these are codes about function to change size and color<br>
 -----------------------------------
     public void UpdateTextviewFont(float x){<br>
