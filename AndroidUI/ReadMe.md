@@ -6,18 +6,19 @@ use textview to show the name <br>
 these two makes item.xml <br>
 through to invoke item.xml makes the listview's basics structs <br>
 then in activemain,use SimpleAdapter to create listview's content <br>
------------------------------------
+
 ![result picture1](https://github.com/qinyitian/javawork/raw/master/img/a21.JPG)<br>
 Second AlertDialog
 =================
 --create layout dialog.xml by LinerLayout include two textview and editview and two button<br>
 then user AlertDialog.Buider to set come selection to show the AlertDialog<br>
------------------------------------
+
 ![result picture2](https://github.com/qinyitian/javawork/raw/master/img/a22.JPG)<br>
+
 Three
 =================
 these are codes about create menu<br>
-
+-----------------------------------
 public boolean onCreateOptionsMenu(Menu menu) {<br>
         SubMenu sub=menu.addSubMenu("字体大小");<br>
         sub.add(0,1,0,"小");<br>
@@ -29,7 +30,8 @@ public boolean onCreateOptionsMenu(Menu menu) {<br>
         menu.add(0,6,0,"toast提示");<br>
         return true;<br>
     } <br>
-these are codes about function to change size and color<br><br>
+these are codes about function to change size and color<br>
+-----------------------------------
     public void UpdateTextviewFont(float x){<br>
         TextView tv =(TextView)findViewById(R.id.maintextview);<br>
         tv.setTextSize(x);<br>
@@ -43,7 +45,7 @@ these are codes about function to change size and color<br><br>
             tv.setTextColor(Color.BLACK);<br>
     }<br>
 use no layout.xml<br>
------------------------------------
+
 ![result picture3](https://github.com/qinyitian/javawork/raw/master/img/a231.JPG)<br>
 ![result picture3](https://github.com/qinyitian/javawork/raw/master/img/a232.JPG)<br>
 ![result picture3](https://github.com/qinyitian/javawork/raw/master/img/a233.JPG)<br>
