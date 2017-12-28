@@ -107,4 +107,6 @@ public class Thread3 implements Runnable {
 }<br>
 result picture
 =================
+make 5 chocolate by for loop
+------------------------------
 ![result picture1](https://github.com/qinyitian/javawork/raw/master/img/t1.JPG)<br>
