@@ -105,4 +105,6 @@ public class Thread3 implements Runnable {
 		}
 	}
 }
-
+result picture
+=================
+![result picture1](https://github.com/qinyitian/javawork/raw/master/img/t1.JPG)<br>
