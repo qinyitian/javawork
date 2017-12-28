@@ -45,7 +45,7 @@ public class ChocolateBoilder {
 			boilder = false;
 		}
 	}
-}
+}<br>
 the chocolate fill thread
 ------------------------
 public class Thread1 implements Runnable{
@@ -64,7 +64,7 @@ public class Thread1 implements Runnable{
 			}
 		}
 	}
-}
+}<br>
 the chocolate boil thread
 ------------------------
 public class Thread2 implements Runnable {
@@ -84,7 +84,7 @@ public class Thread2 implements Runnable {
 			}
 		}
 	}
-}
+}<br>
 the chocolate drain thread
 ------------------------
 public class Thread3 implements Runnable {
@@ -104,7 +104,7 @@ public class Thread3 implements Runnable {
 			}
 		}
 	}
-}
+}<br>
 result picture
 =================
 ![result picture1](https://github.com/qinyitian/javawork/raw/master/img/t1.JPG)<br>
