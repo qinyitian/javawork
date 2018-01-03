@@ -100,8 +100,8 @@ client get connection
 
 client and server introduce 
 ------------------------------
-![result picture2](https://github.com/qinyitian/javawork/raw/master/img/cs2.JPG)<br>
+![result picture2](https://github.com/qinyitian/javawork/raw/master/img/cs3.JPG)<br>
 
 client and server chat 
 ------------------------------
-![result picture2](https://github.com/qinyitian/javawork/raw/master/img/cs3.JPG)<br>
+![result picture2](https://github.com/qinyitian/javawork/raw/master/img/cs2.JPG)<br>
