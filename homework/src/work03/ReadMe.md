@@ -130,12 +130,19 @@ dolist.get(i).getServiceTime())==count){
 =============================================
 先来先服务对象调度，一个工作队列（前后截取20个任务）
 ------------------------------------------------------
-
+![result picture1](https://github.com/qinyitian/javawork/raw/master/img/f11.JPG)<br>
+![result picture1](https://github.com/qinyitian/javawork/raw/master/img/12.JPG)<br>
 先来先服务对象调度，两个工作队列（前后截取20个任务）
 ------------------------------------------------------
+![result picture1](https://github.com/qinyitian/javawork/raw/master/img/21.JPG)<br>
+![result picture1](https://github.com/qinyitian/javawork/raw/master/img/22.JPG)<br>
 
 短作业优先对象调度，一个工作队列（前后截取20个任务）
 ------------------------------------------------------
+![result picture1](https://github.com/qinyitian/javawork/raw/master/img/31.JPG)<br>
+![result picture1](https://github.com/qinyitian/javawork/raw/master/img/32.JPG)<br>
 
 短作业优先对象调度，两个工作队列（前后截取20个任务）
 ------------------------------------------------------
+![result picture1](https://github.com/qinyitian/javawork/raw/master/img/41.JPG)<br>
+![result picture1](https://github.com/qinyitian/javawork/raw/master/img/42.JPG)<br>
