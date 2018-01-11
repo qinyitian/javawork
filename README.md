@@ -2,9 +2,9 @@
 ======================
 --Android
 ----------------------------------
-AndroidUI --第二次android实验<br>
-AndroidWork --第一次androiod实验<br>
-IntentAndBrowser + IntentSearch --第三次android实验<br>
+AndroidUI --第二次android实验（头像列表，字体）<br>
+AndroidWork --第一次androiod实验（线性布局，相对布局）<br>
+IntentAndBrowser + IntentSearch --第三次android实验（搜索，自定义浏览器）<br>
 
 --java
 ----------------------------------
@@ -16,6 +16,6 @@ work03 --第四次，先来先服务和短作业优先（综合小实验）<br>
 FileIO + getandsavetudent --第五次， 测试缓存和磁盘读写，学生对象读写排序操作（javaIO）<br>
 ChocolateByThread --第六次，单例巧克力工厂，（java多线程）<br>
 CS --第七次，客户端与服务器相互聊天（网络编程）<br>
-
-img --图包
+ 
+--/img 图包
 ---------------------------------
