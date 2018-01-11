@@ -2,6 +2,7 @@
 =======================
 <1>读取文件内容到对象数组
 ---------------------------------------------
+```java
 public Task[] readData(String path){
 		File f = new File(path);
 		Integer[] arr = new Integer[3];
@@ -35,14 +36,14 @@ public Task[] readData(String path){
 		}
 		return t;
 	}
-         
+```
 <2>先来先服务对象调度，传入参数决定工作队列数量
 ---------------------------------------------------------------------
+```java
 private void dowork1(int n){
 		int count = 0;
 		int i = 0;
 		ArrayList<Task> dolist = new ArrayList<Task>();
-		
 		while(count < 10000)
 		{
 			if(count<100){
@@ -61,8 +62,7 @@ private void dowork1(int n){
 				}
 			}	
 			for(i=0;i<dolist.size();i++){
-				if((dolist.get(i).getStartingTime()+
-dolist.get(i).getServiceTime())==count){
+				if((dolist.get(i).getStartingTime()+dolist.get(i).getServiceTime())==count){
 					Task t = dolist.remove(i);
 					System.out.println(t.getTaskID()+" over");
 				}
@@ -70,9 +70,10 @@ dolist.get(i).getServiceTime())==count){
 			count++;
 		}
 	}
-
+```
 <3>短作业优先对象调度，定义比较器
--------------------------------------------------------------
+-----------------------------------------------------------
+```java
 public class SortByServiceTime implements Comparator {
 	public int compare(Object o1,Object o2){
 		Task t1 = (Task)o1;
@@ -86,9 +87,10 @@ public class SortByServiceTime implements Comparator {
 	}
 	
 }
-
+```
 <4>短作业优先对象调度，传入参数决定工作队列数量
 ---------------------------------------------------
+```java
 private void dowork2(int n){
 		int count = 0;
 		int i = 0;
@@ -123,7 +125,7 @@ dolist.get(i).getServiceTime())==count){
 		}
 
 	}
-
+```
 实验结果截图
 =============================================
 先来先服务对象调度，一个工作队列（前后截取20个任务）
